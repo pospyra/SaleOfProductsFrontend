@@ -23,6 +23,10 @@ set token(value : string| null){
 
 }
 
+registration(userRegister : any) : Observable<any>{
+  return this._http.post(`https://localhost:7278/registration`, userRegister);
+}
+
 
 login(user: any): Observable<any>{
   return this._http.post(`https://localhost:7278/login`, user)
