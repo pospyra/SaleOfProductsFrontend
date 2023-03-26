@@ -1,0 +1,17 @@
+<div class="formCreate">
+    <p>Оформление заказа</p>
+    <form [formGroup]="form" (ngSubmit)="registerOrder()" >
+        <div class="item">
+        <label for="deliveryAddress">
+            Адрес доставки
+          </label>
+          <input id="deliveryAddress" type="text" formControlName="deliveryAddress">
+        </div>
+        <button class="button" type="submit" 
+      style="background-color:azure; border-color: azure; margin: 10px;">Подтвердить </button>
+
+      <button class="button" type="button"  style="background-color:azure; border-color: azure; margin: 10px;" 
+      [routerLink]="['/']">Продолжить просмотр товаров </button>
+    </form>
+</div>
+    

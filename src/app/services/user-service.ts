@@ -7,7 +7,6 @@ import { Observable, tap } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-
   constructor(private _http : HttpClient, private router : Router) { 
 }
 
@@ -27,11 +26,20 @@ registration(userRegister : any) : Observable<any>{
   return this._http.post(`https://localhost:7278/registration`, userRegister);
 }
 
+getCurrentUser() : Observable<any>{
+  let url = `https://localhost:7278/currentUser`;
+  return this._http.get<any>(url);
+}
+
+
 
 login(user: any): Observable<any>{
   return this._http.post(`https://localhost:7278/login`, user)
   .pipe(tap((res : any)=>{
   this.token = res.token;
+
+
+
   this.router.navigateByUrl('/');
   }));
  }

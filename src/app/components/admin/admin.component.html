@@ -24,7 +24,9 @@
   
   <div class = "list"  >  
       <div *ngFor = "let item of product |async" class="item"  >
-        <button (click)="addProductToCart(item.id)" style="float: right;  color:brown">🛒</button>
+        <button (click)="deleteProduct(item.id)" style="float: right;  color:brown">❌</button>
+        <button style="float:right;" [routerLink]="['/editProducts', item.id]">✏️</button>
+
         <h1>{{item.name}}</h1> 
         <p>Описание: {{item.description}}</p> 
         <div class="photo">
@@ -38,15 +40,3 @@
 
     
   
-  
-  
-  <!-- <div class="container" nz-row [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }" 
-  
-  ">
-    <nz-card *ngFor = "let item of ads" >123 </nz-card>  
-  
-  
-   <ng-template #loading>
-      <nz-spin></nz-spin >
-   </ng-template>
-   -->

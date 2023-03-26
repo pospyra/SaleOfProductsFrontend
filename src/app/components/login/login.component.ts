@@ -4,6 +4,7 @@ import { NzMessageService } from 'ng-zorro-antd/message';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
 import { UserService } from 'src/app/services/user-service';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -20,11 +21,16 @@ export class LoginComponent implements OnInit {
        private fb : FormBuilder, 
        private nzMessageService : NzMessageService, 
        private nzNotificationService : NzNotificationService, 
-       private _auth: UserService ) { }
+       private _userService: UserService ) { }
   
     ngOnInit(): void {
     }
   
+    getCurrentUser(){
+      this._userService.getCurrentUser().subscribe(res=>
+      console.log(res));
+    }
+
     onSubmit(){
       if(this.form.invalid){
         this.nzNotificationService.error('Ошибка' , 'Форма заполнена не верно');
@@ -37,7 +43,7 @@ export class LoginComponent implements OnInit {
         return;
       }
   
-      this._auth.login(this.form.getRawValue()).subscribe(res=>{
+      this._userService.login(this.form.getRawValue()).subscribe(res=>{
         console.log(res);
       })
     }
