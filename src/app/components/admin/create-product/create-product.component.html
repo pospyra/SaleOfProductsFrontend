@@ -1,1 +1,54 @@
-<p>create-product works!</p>
+<h1>Объявить объявление</h1>
+<form nz-form [formGroup]="form" (ngSubmit)="createProduct()">
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzFor="adName">Название</nz-form-label>
+      <nz-form-control [nzSpan]="14" [nzErrorTip]="errorTip">
+        <input nz-input name="adName"  id="adName" formControlName = "Name">
+      </nz-form-control>
+    </nz-form-item >
+
+    <nz-form-item>
+        <nz-form-label [nzSpan]="6" nzRequired>Категория</nz-form-label>
+        <nz-form-control [nzSpan]="14" [nzErrorTip]="errorTip">
+          <nz-tree-select
+            [nzNodes]="(category$ | async) || []"
+            formControlName="SubcategoryId"
+          ></nz-tree-select>
+        </nz-form-control> 
+      </nz-form-item>
+    
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzFor="Description">Описание</nz-form-label>
+      <nz-form-control [nzSpan]="14" [nzErrorTip]="errorTip">
+        <textarea nz-input  [nzAutosize]="{ minRows: 2, maxRows: 6 }" name="Description"  id="Description" formControlName = "Description"></textarea>
+      </nz-form-control>
+    </nz-form-item >
+
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzRequired>Цена</nz-form-label>
+      <nz-form-control [nzSpan]="14" [nzErrorTip]="errorTip">
+        <input nz-input formControlName="Price" >
+      </nz-form-control>
+    </nz-form-item>
+
+    
+     <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzRequired>Возомжность доставки</nz-form-label>
+      <nz-form-control [nzSpan]="14" [nzErrorTip]="errorTip">
+        <input nz-input formControlName="possibleDelivery" type="checkbox" value="true" >
+      </nz-form-control>
+    </nz-form-item> 
+
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzRequired>Фотография</nz-form-label>
+    <div class="item">
+      <input type ="file" (change)="onFileChange($event)" >
+    </div>  
+    </nz-form-item>
+
+    <button nz-button nzType ="primary" type ="submit">Добавить</button>
+  </form>
+
+  <ng-template #errorTip let-control>
+    <div style = "color:red" *ngIf="control?.invalid && control?.touched">Поле заполнено не верно</div>
+  </ng-template>

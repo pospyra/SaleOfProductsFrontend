@@ -10,6 +10,13 @@ export class ProductService {
   constructor(private _http: HttpClient) { }
 
 
+createProduct(name : any, 
+  SubcategoryId: any,
+  Description: any,
+  price: any, delivery : any, photo :any  ) : Observable<any>{
+  return this._http.post(`https://localhost:7278/ad/createAd?Name=${name}&SubcategoryId=${SubcategoryId}&Description=${Description}&Price=${price}&PossibleOfDelivery=${delivery}`, photo);
+
+}
 
   
   getAll() : Observable<any>{

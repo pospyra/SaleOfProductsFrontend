@@ -38,8 +38,6 @@ login(user: any): Observable<any>{
   .pipe(tap((res : any)=>{
   this.token = res.token;
 
-
-
   this.router.navigateByUrl('/');
   }));
  }

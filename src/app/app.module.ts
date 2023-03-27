@@ -20,7 +20,7 @@ import {NzCardModule} from "ng-zorro-antd/card";
 import { NzUploadModule } from 'ng-zorro-antd/upload';
 import { NzPaginationModule } from 'ng-zorro-antd/pagination';
 import { NzButtonModule } from 'ng-zorro-antd/button';
-import { NzNotificationModule, NzNotificationService } from 'ng-zorro-antd/notification';
+import { NzNotificationModule } from 'ng-zorro-antd/notification';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzTreeSelectModule } from 'ng-zorro-antd/tree-select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -32,6 +32,12 @@ import { CreateProductComponent } from './components/admin/create-product/create
 import { EditProductComponent } from './components/admin/edit-product/edit-product.component';
 import { CreateCategoryComponent } from './components/admin/create-category/create-category.component';
 import { EditCategoryComponent } from './components/admin/edit-category/edit-category.component';
+import { NZ_I18N } from 'ng-zorro-antd/i18n';
+import { uk_UA } from 'ng-zorro-antd/i18n';
+import { registerLocaleData } from '@angular/common';
+import uk from '@angular/common/locales/uk';
+
+registerLocaleData(uk);
 
 
 @NgModule({
@@ -76,7 +82,7 @@ import { EditCategoryComponent } from './components/admin/edit-category/edit-cat
   ],
   providers: [ 
     { provide: DEFAULT_CURRENCY_CODE, useValue: 'RUB' },  
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }, 
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }, { provide: NZ_I18N, useValue: uk_UA }, 
     
   ],
   bootstrap: [AppComponent]

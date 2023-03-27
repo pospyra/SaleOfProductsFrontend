@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NzNotificationService } from 'ng-zorro-antd/notification';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 
 @Component({
@@ -10,7 +11,8 @@ export class MyShoppingCartComponent implements OnInit {
 
   itemCart : any;
   constructor(
-    private _cartService : ShoppingCartService){}
+    private _cartService : ShoppingCartService,
+   private nzNotificationService : NzNotificationService){}
 
   ngOnInit(): void {
     this.onSubmit();
@@ -22,6 +24,12 @@ export class MyShoppingCartComponent implements OnInit {
 
   deleteFromCart(itemId: string){
     this._cartService.deleteProduct(itemId);
+     
+    this.nzNotificationService.success(
+      'Успешно!',
+      'Продукт удалён из корзины! Обновите страницу'
+    );
+
   }
 
 }

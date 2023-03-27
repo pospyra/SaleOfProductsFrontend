@@ -1,4 +1,9 @@
 
+<div>
+  <button [routerLink]="['/createProduct']">Добавить новый продукт</button>
+  <button [routerLink]="['/createCategory']">Добавить новую категорию</button>
+</div>
+
 <div class = "search">
     <div class =" categorySearch">
       <form nz-form [formGroup]="formSearch" (ngSubmit)="onSubmit()">
