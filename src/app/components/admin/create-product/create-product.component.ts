@@ -25,7 +25,7 @@ export class CreateProductComponent implements OnInit {
         Validators.pattern(/^\d+(,\d{1,2})?$/),
       ],
     ],
-    possibleDelivery: [false, Validators.required],
+    PossibleOfDelivery: [false, Validators.required],
     photo: [[]]
     })
 
@@ -57,7 +57,7 @@ export class CreateProductComponent implements OnInit {
         this.form.get('SubcategoryId')?.value ,
         this.form.get('Description')?.value,
         this.form.get('Price')?.value,
-        this.form.get('PossibleDelivery')?.value,
+        this.form.get('PossibleOfDelivery')?.value,
 
          formData).subscribe(res=>{
        console.log(res);

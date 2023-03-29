@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, tap } from 'rxjs';
+import { environment } from 'src/enviromants/environment.prod';
 
 @Injectable({
   providedIn: 'root'
@@ -23,18 +24,18 @@ set token(value : string| null){
 }
 
 registration(userRegister : any) : Observable<any>{
-  return this._http.post(`https://localhost:7278/registration`, userRegister);
+  return this._http.post(`${environment.host}/registration`, userRegister);
 }
 
 getCurrentUser() : Observable<any>{
-  let url = `https://localhost:7278/currentUser`;
+  let url = `${environment.host}/currentUser`;
   return this._http.get<any>(url);
 }
 
 
 
 login(user: any): Observable<any>{
-  return this._http.post(`https://localhost:7278/login`, user)
+  return this._http.post(`${environment.host}/login`, user)
   .pipe(tap((res : any)=>{
   this.token = res.token;
 

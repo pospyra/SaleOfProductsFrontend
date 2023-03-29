@@ -1,16 +1,16 @@
  <div>
   <div class = "list"  >  
-    <div *ngFor = "let item of itemCart |async" class="item"  >
+    <div *ngFor="let item of itemCart" class="item"  >
       <button nz-button nzType="dashed" (click)="deleteFromCart(item.id)" style= "color:black">❌</button>
 
-      <h1>{{item.id}}</h1> 
+      <h1>{{item.name}}</h1> 
       <p>Описание: {{item.description}}</p> 
+      
+      <h2>Цена {{item.price |currency}}</h2> 
       <div class="photo">
         <img
         [src]="'data:image/png;base64,' + item.kodBase64" 
         />    
-
-      <h2>Цена {{item.price |currency}}</h2> 
   </div>
 </div>
 

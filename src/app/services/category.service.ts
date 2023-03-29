@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
+import { environment } from 'src/enviromants/environment.prod';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class CategoryService {
   constructor(private _http : HttpClient) { }
 
   getListCategory(): Observable<any>{
-    return this._http.get<any>(`https://localhost:7278/category/all`).pipe(map(category=>{
+    return this._http.get<any>(`${environment.host}/category/all`).pipe(map(category=>{
       return this.arrayToNzCascade(category);
     }));}
 

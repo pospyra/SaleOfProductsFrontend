@@ -32,7 +32,7 @@ import { CreateProductComponent } from './components/admin/create-product/create
 import { EditProductComponent } from './components/admin/edit-product/edit-product.component';
 import { CreateCategoryComponent } from './components/admin/create-category/create-category.component';
 import { EditCategoryComponent } from './components/admin/edit-category/edit-category.component';
-import { NZ_I18N } from 'ng-zorro-antd/i18n';
+import { NZ_I18N, ru_RU } from 'ng-zorro-antd/i18n';
 import { uk_UA } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import uk from '@angular/common/locales/uk';
@@ -81,8 +81,10 @@ registerLocaleData(uk);
     NzAlertModule,
   ],
   providers: [ 
-    { provide: DEFAULT_CURRENCY_CODE, useValue: 'RUB' },  
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }, { provide: NZ_I18N, useValue: uk_UA }, 
+    { provide: NZ_I18N, useValue: ru_RU },
+    { provide: DEFAULT_CURRENCY_CODE, useValue: 'RUB' },
+    { provide: LOCALE_ID, useValue: 'ru' },   
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }, 
     
   ],
   bootstrap: [AppComponent]

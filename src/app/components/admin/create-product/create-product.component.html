@@ -1,4 +1,4 @@
-<h1>Объявить объявление</h1>
+<h1>Добавление продукта</h1>
 <form nz-form [formGroup]="form" (ngSubmit)="createProduct()">
     <nz-form-item>
       <nz-form-label [nzSpan]="6" nzFor="adName">Название</nz-form-label>
@@ -35,7 +35,7 @@
      <nz-form-item>
       <nz-form-label [nzSpan]="6" nzRequired>Возомжность доставки</nz-form-label>
       <nz-form-control [nzSpan]="14" [nzErrorTip]="errorTip">
-        <input nz-input formControlName="possibleDelivery" type="checkbox" value="true" >
+        <input nz-input formControlName="PossibleOfDelivery" type="checkbox" value="true" >
       </nz-form-control>
     </nz-form-item> 
 

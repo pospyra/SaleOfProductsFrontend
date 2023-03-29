@@ -26,11 +26,12 @@
         <button (click)="addProductToCart(item.id)" style="float: right;  color:brown">🛒</button>
         <h1>{{item.name}}</h1> 
         <p>Описание: {{item.description}}</p> 
+        <h2>Цена {{item.price |currency}}</h2> 
         <div class="photo">
           <img
           [src]="'data:image/png;base64,' + item.kodBase64" 
           />    
-        <h2>Цена {{item.price |currency}}</h2> 
+        
 
     </div>
     </div>
